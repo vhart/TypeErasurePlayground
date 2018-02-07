@@ -6,6 +6,7 @@ public class NavViewController: UIViewController {
     var b1: UIButton!
     var b2: UIButton!
 
+
     public init() {
         super.init(nibName: nil, bundle: nil)
         navigationItem.title = "Type Erasure"
@@ -19,7 +20,7 @@ public class NavViewController: UIViewController {
 
         button2.backgroundColor = .blue
         button2.setTitle("RANDOM STRING", for: .normal)
-        print("SETUP")
+
         button2.isUserInteractionEnabled = true
         button1.addTarget(self, action: #selector(pushChuckNorrisVC), for: .touchUpInside)
         button2.addTarget(self, action: #selector(pushRandomStringVC), for: .touchUpInside)
@@ -40,6 +41,8 @@ public class NavViewController: UIViewController {
 
     @objc func pushChuckNorrisVC() {
         print("PUSH NORRIS")
+        let vc = ChuckNorrisVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func pushRandomStringVC() {
@@ -48,4 +51,6 @@ public class NavViewController: UIViewController {
         vc.session = NetworkSession()
         navigationController?.pushViewController(vc, animated: true)
     }
+
+    @objc func handleSwipe(){}
 }

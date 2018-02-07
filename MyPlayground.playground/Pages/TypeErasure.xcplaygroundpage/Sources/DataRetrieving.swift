@@ -14,6 +14,6 @@ public struct NetworkSession: DataRetrievable {
             if let json = try? JSONSerialization.jsonObject(with: data, options: [.allowFragments]) {
                 onComplete(RandomString.init(json: json))
             }
-            }.resume()
+        }.resume()
     }
 }
